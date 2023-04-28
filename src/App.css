@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Sigmar&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Sigmar", cursive;
+}
+
+:root {
+  --mainColor: #ff6000;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #0b2447;
+  background-image: linear-gradient(to top, #2a2f4f 0%, #0b2447 100%);
+}
+
+.homepage {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  justify-content: center;
+}
+
+/* Navbar */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbarContent {
+  height: 4rem;
+  width: 30rem;
+  background-color: #fff;
+  border-radius: 5rem;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.navbarContent ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+}
+
+.navbarContent ul::after {
+  content: "";
+  width: 30rem;
+  height: 5rem;
+  top: 2.8rem;
+  left: -2rem;
+  position: absolute;
+  z-index: 2;
+}
+
+.navbarContent ul li {
+  list-style: none;
+  position: relative;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.navbarContent ul li::after {
+  transition: 0.2s ease-in-out;
+  content: "Take a look!";
+  position: absolute;
+  top: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: linear-gradient(to top, #ff620000 0%, #ff6000 100%);
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  width: max-content;
+  border-radius: 0.5rem 0.5rem 0 0;
+  font-family: "Poppins", sans-serif;
+  visibility: hidden;
+  color: #fff;
+  opacity: 0;
+  animation: lianimated 0.8s ease-in-out infinite;
+}
+
+.navbarContent ul li::before {
+  content: "";
+  position: absolute;
+  background: var(--mainColor);
+  top: 1.6rem;
+  bottom: -0.2rem;
+  border-radius: 1rem;
+  left: 100%;
+  right: 100%;
+  transition: 0.2s ease-in-out;
+}
+
+.navbarContent ul li:hover::before {
+  left: 0;
+  right: 0;
+}
+
+.navbarContent ul li:hover::after {
+  visibility: visible;
+  opacity: 1;
+  top: 3.7rem;
+}
+
+@keyframes lianimated {
+  0% {
+    top: 3.7rem;
+  }
+
+  60% {
+    top: 4rem;
+  }
+
+  70% {
+    top: 4rem;
+  }
+
+  100% {
+    top: 3.7rem;
+  }
+}
+
+.mainBtn {
+  all: unset;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  position: relative;
+  color: #f0f0f0;
+  cursor: pointer;
+  z-index: 1;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-family: "Poppins", sans-serif;
+}
+
+.mainBtn::after,
+.mainBtn::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -99999;
+  transition: all 0.4s;
+}
+
+.mainBtn::before {
+  transform: translate(0%, 0%);
+  width: 100%;
+  height: 100%;
+  background: var(--mainColor);
+  border-radius: 10px;
+}
+
+.mainBtn::after {
+  transform: translate(10px, 10px);
+  width: 35px;
+  height: 35px;
+  background: #ffffff15;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 50px;
+}
+
+.mainBtn:hover::before {
+  transform: translate(5%, 20%);
+  width: 110%;
+  height: 110%;
+}
+
+.mainBtn:hover::after {
+  border-radius: 10px;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 100%;
+}
+
+.mainBtn:active::after {
+  transition: 0s;
+  transform: translate(0, 5%);
+}
